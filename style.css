@@ -1,0 +1,41 @@
+body{
+    background: black;
+}
+.desktop_screen{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url(img0.jpg);
+    background-size: 100vw 100vh;
+}
+.Task_bar_container{
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: auto;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12.5px);
+    border-top: 0.5px solid rgb(171, 171, 171);
+    padding: 12.5px;
+}
+.Task_bar_container #App_icon{
+    height: 40px;
+    width: 40px;
+    padding: 15px;
+    border-radius: 20px;
+}
+.Task_bar_container #App_icon:hover{
+    background: rgba(255, 255, 255, 0.7);
+    animation: App_task_Bar_fade_in 0.25s;
+}
+.Task_bar_container #App{
+    margin-right: 12.5px;
+}
+@keyframes App_task_Bar_fade_in {
+    from{background: rgba(255, 255, 255, 0);}
+    to{background: rgba(255, 255, 255, 0.7);}
+}
