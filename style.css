@@ -1,49 +1,176 @@
-body {
+body{
     background: black;
 }
-
-.desktop_screen {
+.desktop_screen{
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     background: url(img0.jpg);
-    background-size: cover; /* More reliable scaling for older browsers */
+    background-size: 100vw 100vh;
 }
-
-.Task_bar_container {
+.Task_bar_container{
     width: 100vw;
     position: fixed;
     bottom: 0;
     left: 0;
     height: auto;
-    display: flex; /* Ensure alignment works on older devices */
     align-items: center;
-    background: rgba(255, 255, 255, 0.8); /* Replace backdrop-filter */
+    display: flex;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12.5px);
     border-top: 0.5px solid rgb(171, 171, 171);
-    padding: 12.5px;
+    padding-top: 5px;
+}
+.Task_bar_container #App_icon{
+    height: 25px;
+    width: 25px;
+    padding: 7px;
+    border-radius: 5px;
+}
+.start_container {
+    width: 500px;
+    height: 600px;
+    background: rgba(255, 255, 255, 0.9);
+    position: absolute; /* Change from static to absolute */
+    bottom: 60px; /* Place it above the taskbar, adjust this value based on the Taskbar height */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for the centered position */
+    border-radius: 5px;
+    backdrop-filter: blur(12.5px);
+    
 }
 
-.Task_bar_container #App_icon {
-    height: 40px;
-    width: 40px;
-    padding: 15px;
-    border-radius: 20px;
-    transition: background 0.25s ease; /* Add smooth transitions */
+.app_grid_container #App_icon{
+    height: 26px;
+    width: 26px;
+    padding: 7px;
 }
 
-/* Use :active for touch interaction feedback */
-.Task_bar_container #App_icon:active {
+.file_grid_container #App_icon{
+    height: 26px;
+    width: 26px;
+    padding: 7px;
+}
+.Task_bar_container #App_icon:hover{
     background: rgba(255, 255, 255, 0.7);
+    animation: App_task_Bar_fade_in 0.25s;
 }
-
-.Task_bar_container #App {
-    margin-right: 12.5px;
-}
-
-/* Remove unsupported backdrop-filter animations */
 @keyframes App_task_Bar_fade_in {
-    from { background: rgba(255, 255, 255, 0); }
-    to { background: rgba(255, 255, 255, 0.7); }
+    from{background: rgba(255, 255, 255, 0);}
+    to{background: rgba(255, 255, 255, 0.7);}
+}
+.Task_bar_container #search{
+    width: 120px;
+    padding: 7px;
+    font-size: 15px;
+    border-radius: 25px;
+    border: 1px solid gray;
+    text-align: center;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+
+.start_container #Search{
+    width: 83%;
+    padding: 10px;
+    text-align: left;
+    border: 1.25px solid rgb(162, 174, 177);
+    border-radius: 25px;
+    font-size: 13px;
+    padding-left: 20px;
+    margin-top: 3.5vh;
+    background: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    left: 50%; /* Move the child to 50% from the left */
+    transform: translate(-50%,0);
+    margin-top: 3vh;
+}
+.start_container .app_grid_container{
+    width: 82.5%;
+    height: auto;
+    padding-bottom: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-rows: auto auto auto;
+    
+}
+
+.app_grid_container #App{
+    width: 60px;
+    margin-left: 2px;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    padding-bottom: 20px;
+    margin-top: 10px;
+    height: 50px;
+    border-radius: 5px;
+}
+.app_grid_container #App:hover{
+    background: rgba(255, 255, 255, 0.6);
+}
+
+
+.file_grid_container #App{
+    width: 60px;
+    margin-left: 2px;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    padding-bottom: 20px;
+    margin-top: 10px;
+    height: 50px;
+    border-radius: 5px;
+}
+.file_grid_container #App:hover{
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.start_container h2{
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 50px;
+}
+.start_container .file_grid_container{
+    width: 82.5%;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 8px;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+}
+.start_container .user_control_container{
+    position: absolute; /* Change from static to absolute */
+    bottom: 0;
+    background: rgba(220, 220, 220, 0.3);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 100%;
+    height: 70px;
+    border-top: 1px solid rgb(171, 171, 171);
+}
+.user_control_container #User{
+    border-radius: 50%;
+    margin-left: 7vh;
+    width: 35px;
+    height: 35px;
+    float: left;
+}
+.user_control_container{
+    align-items: center;
+    display: flex;
+}
+.user_control_container a{
+    color: black;
+    text-decoration: none;
+    font-weight: 400;
+    margin-left: 10px;
 }

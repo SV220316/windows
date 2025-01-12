@@ -5,6 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Windows 11 + Yuna AI</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        #window {
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            width: 400px;
+            height: 250px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            color: #333333;
+        }
+
+        #title-bar {
+            height: 40px;
+            background: linear-gradient(180deg, #e1e1e1, #ffffff);
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 12px;
+            cursor: move;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        #window-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        #close-btn {
+            width: 18px;
+            height: 18px;
+            background-color: #d7d7d7;
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #close-btn:hover {
+            background-color: #e80000;
+        }
+
+        #close-btn::before, #close-btn::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 2px;
+            background-color: white;
+        }
+
+        #close-btn::before {
+            transform: rotate(45deg);
+        }
+
+        #close-btn::after {
+            transform: rotate(-45deg);
+        }
+
+        /* Additional window controls */
+        #minimize-btn {
+            width: 18px;
+            height: 2px;
+            background-color: #888;
+            cursor: pointer;
+        }
+
+        #minimize-btn:hover {
+            background-color: #666;
+        }
+
+    </style>
 </head>
 <body>
     <div class="boot_screen"></div>
@@ -12,14 +96,95 @@
     <div class="desktop_screen">
         <div class="Task_bar_container">
             <div class="icon_center">
-                <a href="http://" id="App"><img src="memoji.png" id="App_icon"></a>
-                <a href="http://" id="App"><img src="memoji.png" id="App_icon"></a>
-                <a href="http://" id="App"><img src="memoji.png" id="App_icon"></a>
-                <a href="http://" id="App"><img src="memoji.png" id="App_icon"></a>
-                <a href="http://" id="App"><img src="memoji.png" id="App_icon"></a>
-                <a href="http://" id="App"><img src="memoji.png" id="App_icon"></a>
+                <a href="#" id="App"><img src="start.webp" id="App_icon"></a>   <!-- Start -->
+                <a href="#" id="App"><img src="Search.png" id="App_icon"></a>   <!-- Search -->
+                <a href="#" id="App"><img src="yuna.webp" id="App_icon"></a>   <!-- Yuna AI -->
+                <a href="#" id="App"><img src="Explorer.png" id="App_icon"></a>   <!-- Explorer -->
+                <a href="#" id="App"><img src="Code.png" id="App_icon"></a>   <!-- Code -->
+                <a href="#" id="App"><img src="Edge.png" id="App_icon"></a>   <!-- Edge -->
+                <a href="#" id="App"><img src="Mail.png" id="App_icon"></a>   <!-- Mail -->
             </div>
         </div>
+        <div class="start_container">
+            <input type="text" id="Search" placeholder="Search for apps, settings, or ask Yuna">
+            <h2 style="margin-top: 10vh;"> Pinned </h2>
+            <div class="app_grid_container">
+                <a href="#" id="App"><img src="start.webp" id="App_icon"> App </a>   <!-- Start -->
+                <a href="#" id="App"><img src="Search.png" id="App_icon"> App </a>   <!-- Search -->
+                <a href="#" id="App"><img src="yuna.webp" id="App_icon"> App </a>   <!-- Yuna AI -->
+                <a href="#" id="App"><img src="Explorer.png" id="App_icon"> App </a>   <!-- Explorer -->
+                <a href="#" id="App"><img src="Code.png" id="App_icon"> App </a>   <!-- Code -->
+                <a href="#" id="App"><img src="Edge.png" id="App_icon"> App </a>   <!-- Edge -->
+                <a href="#" id="App"><img src="Mail.png" id="App_icon"> App </a>   <!-- Mail -->
+                <a href="#" id="App"><img src="Edge.png" id="App_icon"> App </a>   <!-- Edge -->
+                <a href="#" id="App"><img src="Mail.png" id="App_icon"> App </a>   <!-- Mail -->
+                <a href="#" id="App"><img src="Edge.png" id="App_icon"> App </a>   <!-- Edge -->
+                <a href="#" id="App"><img src="Mail.png" id="App_icon"> App </a>   <!-- Mail -->
+                <a href="#" id="App"><img src="Edge.png" id="App_icon"> App </a>   <!-- Edge -->
+            </div>
+            <h2> Recommended </h2>
+            <div class="file_grid_container">
+                <a href="#" id="App"><img src="start.webp" id="App_icon"> App </a>   <!-- Start -->
+                <a href="#" id="App"><img src="Search.png" id="App_icon"> App </a>   <!-- Search -->
+                <a href="#" id="App"><img src="yuna.webp" id="App_icon"> App </a>   <!-- Yuna AI -->
+                <a href="#" id="App"><img src="Explorer.png" id="App_icon"> App </a>   <!-- Explorer -->
+                <a href="#" id="App"><img src="Code.png" id="App_icon"> App </a>   <!-- Code -->
+                <a href="#" id="App"><img src="Edge.png" id="App_icon"> App </a>   <!-- Edge -->
+            </div>
+            <div class="user_control_container">
+                <img src="memoji.png" id="User"/><a href="#">John Doe</a>
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <div id="window">
+            <div id="title-bar">
+                <div>My Windows 11 Window</div>
+                <div id="minimize-btn"></div>
+                <div id="close-btn"></div>
+            </div>
+            <div id="window-content">
+                <p>This is the content of the draggable window with a Windows 11 UI style in light mode.</p>
+            </div>
+        </div>
+    
+        <script>
+            var windowElement = document.getElementById("window");
+            var titleBar = document.getElementById("title-bar");
+            var closeButton = document.getElementById("close-btn");
+    
+            var isDragging = false;
+            var offsetX, offsetY;
+    
+            titleBar.addEventListener("touchstart", function(e) {
+                isDragging = true;
+                offsetX = e.touches[0].clientX - windowElement.offsetLeft;
+                offsetY = e.touches[0].clientY - windowElement.offsetTop;
+                e.preventDefault();
+            });
+    
+            window.addEventListener("touchmove", function(e) {
+                if (isDragging) {
+                    var x = e.touches[0].clientX - offsetX;
+                    var y = e.touches[0].clientY - offsetY;
+                    windowElement.style.left = x + "px";
+                    windowElement.style.top = y + "px";
+                }
+            });
+    
+            window.addEventListener("touchend", function() {
+                isDragging = false;
+            });
+    
+            closeButton.addEventListener("touchend", function() {
+                windowElement.style.display = "none";  // Close the window on click
+            });
+        </script>
     </div>
 </body>
 </html>
